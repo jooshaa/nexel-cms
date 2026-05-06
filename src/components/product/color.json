@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_product_colors",
+  "info": {
+    "displayName": "Color",
+    "description": "A product color variant"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50
+    },
+    "hex": {
+      "type": "string",
+      "maxLength": 9
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "inStock": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

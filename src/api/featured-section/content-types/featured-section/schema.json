@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "featured_sections",
+  "info": {
+    "singularName": "featured-section",
+    "pluralName": "featured-sections",
+    "displayName": "Featured Section",
+    "description": "Homepage featured product sections"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "maxLength": 150
+    },
+    "subtitle": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "styleVariant": {
+      "type": "enumeration",
+      "enum": [
+        "grid",
+        "carousel",
+        "hero-split",
+        "list",
+        "spotlight"
+      ],
+      "default": "grid"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "order": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
+    "backgroundStyle": {
+      "type": "enumeration",
+      "enum": ["default", "dark", "accent", "muted"],
+      "default": "default"
+    }
+  }
+}
