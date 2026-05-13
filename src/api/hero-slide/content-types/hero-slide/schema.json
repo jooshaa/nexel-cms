@@ -12,10 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "description": {
+      "type": "text"
+    },
     "title": {
       "type": "string",
-      "required": true,
-      "maxLength": 150
+      "maxLength": 150,
+      "required": true
     },
     "subtitle": {
       "type": "string",
@@ -33,13 +36,17 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "mobileImage": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "active": {
       "type": "boolean",
@@ -52,14 +59,33 @@
     },
     "textColor": {
       "type": "enumeration",
-      "enum": ["light", "dark"],
-      "default": "light"
+      "default": "light",
+      "enum": [
+        "light",
+        "dark"
+      ]
     },
     "overlayOpacity": {
       "type": "decimal",
       "default": 0.3,
       "min": 0,
       "max": 1
+    },
+    "bgColor": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "phone": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

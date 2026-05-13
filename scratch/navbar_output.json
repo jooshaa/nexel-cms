@@ -1,0 +1,1 @@
+Fetching: http://127.0.0.1:1337/api/navbar-sections?filters%5Bactive%5D%5B%24eq%5D=true&populate%5Bcategory%5D%5Bpopulate%5D=*&populate%5BfeaturedProducts%5D%5Bpopulate%5D%5Bimages%5D=true&populate%5BpromoImage%5D=true
