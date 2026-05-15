@@ -592,7 +592,6 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
         number
       > &
       Schema.Attribute.DefaultTo<0.3>;
-    phone: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
     subtitle: Schema.Attribute.String &
       Schema.Attribute.SetMinMaxLength<{
