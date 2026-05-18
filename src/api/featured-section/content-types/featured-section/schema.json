@@ -10,27 +10,46 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "title": {
       "type": "string",
-      "required": true,
-      "maxLength": 150
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "maxLength": 150,
+      "required": true
     },
     "subtitle": {
       "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "maxLength": 300
     },
     "styleVariant": {
       "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "grid",
       "enum": [
         "grid",
         "carousel",
         "hero-split",
         "list",
         "spotlight"
-      ],
-      "default": "grid"
+      ]
     },
     "products": {
       "type": "relation",
@@ -39,17 +58,37 @@
     },
     "active": {
       "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "default": true
     },
     "order": {
       "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "default": 0,
       "min": 0
     },
     "backgroundStyle": {
       "type": "enumeration",
-      "enum": ["default", "dark", "accent", "muted"],
-      "default": "default"
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "default": "default",
+      "enum": [
+        "default",
+        "dark",
+        "accent",
+        "muted"
+      ]
     }
   }
 }
