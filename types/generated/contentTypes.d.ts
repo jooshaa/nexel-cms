@@ -484,6 +484,10 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::category.category'
     >;
+    megaMenuGroups: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mega-menu-group.mega-menu-group'
+    >;
     name: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -736,6 +740,67 @@ export interface ApiHeroSlideHeroSlide extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiMegaMenuGroupMegaMenuGroup
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'mega_menu_groups';
+  info: {
+    displayName: 'Mega Menu Group';
+    pluralName: 'mega-menu-groups';
+    singularName: 'mega-menu-group';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    active: Schema.Attribute.Boolean &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    category: Schema.Attribute.Relation<'manyToOne', 'api::category.category'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featuredProducts: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::product.product'
+    >;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mega-menu-group.mega-menu-group'
+    >;
+    navbarSection: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::navbar-section.navbar-section'
+    >;
+    order: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNavbarSectionNavbarSection
   extends Struct.CollectionTypeSchema {
   collectionName: 'navbar_sections';
@@ -773,6 +838,10 @@ export interface ApiNavbarSectionNavbarSection
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::navbar-section.navbar-section'
+    >;
+    MegaMenu: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::mega-menu-group.mega-menu-group'
     >;
     order: Schema.Attribute.Integer &
       Schema.Attribute.SetPluginOptions<{
@@ -1509,6 +1578,7 @@ declare module '@strapi/strapi' {
       'api::category.category': ApiCategoryCategory;
       'api::featured-section.featured-section': ApiFeaturedSectionFeaturedSection;
       'api::hero-slide.hero-slide': ApiHeroSlideHeroSlide;
+      'api::mega-menu-group.mega-menu-group': ApiMegaMenuGroupMegaMenuGroup;
       'api::navbar-section.navbar-section': ApiNavbarSectionNavbarSection;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;

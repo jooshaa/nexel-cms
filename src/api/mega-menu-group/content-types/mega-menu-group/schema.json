@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mega_menu_groups",
+  "info": {
+    "singularName": "mega-menu-group",
+    "pluralName": "mega-menu-groups",
+    "displayName": "Mega Menu Group"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "order": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "active": {
+      "type": "boolean",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "megaMenuGroups"
+    },
+    "featuredProducts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product"
+    },
+    "navbarSection": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::navbar-section.navbar-section",
+      "inversedBy": "MegaMenu"
+    }
+  }
+}

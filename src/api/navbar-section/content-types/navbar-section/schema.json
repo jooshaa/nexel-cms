@@ -90,6 +90,12 @@
         }
       },
       "default": true
+    },
+    "MegaMenu": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::mega-menu-group.mega-menu-group",
+      "mappedBy": "navbarSection"
     }
   }
 }
